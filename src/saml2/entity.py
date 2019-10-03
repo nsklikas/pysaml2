@@ -257,8 +257,9 @@ class Entity(HTTPBase):
 
         if binding == BINDING_HTTP_POST:
             logger.info("HTTP POST")
-            info = http_form_post_message(msg_str, destination, relay_state, typ)
-            (msg_str, destination, relay_state, typ)
+            info = http_form_post_message(
+                msg_str, destination, relay_state, typ, **kwargs
+            )
             info["url"] = destination
             info["method"] = "POST"
         elif binding == BINDING_HTTP_REDIRECT:
